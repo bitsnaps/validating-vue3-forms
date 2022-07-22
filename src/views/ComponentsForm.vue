@@ -83,6 +83,8 @@
 </template>
 
 <script>
+import { axios } from 'axios'
+
 export default {
   data () {
     return {
@@ -110,7 +112,16 @@ export default {
   },
   methods: {
     createEvent () {
-      console.log('submit')
+      axios.post(
+        'http://localhost:3000/events',
+        this.event
+      )
+        .then(function (response) {
+          console.log('Response: ', response)
+        })
+        .catch(function (err) {
+          console.log('Error: ', err)
+        })
     }
   }
 }
