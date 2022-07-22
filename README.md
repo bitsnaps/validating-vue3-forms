@@ -27,4 +27,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 npm install vee-validate@next
 npm install yup
+# Used in auto-importing components code
+npm install --save lodash
 ```
