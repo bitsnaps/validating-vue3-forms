@@ -22,3 +22,9 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Installed packages:
+```
+npm install vee-validate@next
+npm install yup
+```
