@@ -9,39 +9,46 @@
         error="This field is required"
       />
 
-      <h3>Name & describe your event</h3>
-      <BaseInput
-        label="Title"
-        v-model="event.title"
-        type="text"
-        error="This field is required"
-      />
+      <fieldset>
+        <legend>Name & describe your event</legend>
 
-      <BaseInput
-        label="Description"
-        v-model="event.description"
-        type="text"
-      />
+        <BaseInput
+          label="Title"
+          v-model="event.title"
+          type="text"
+          error="This field is required"
+        />
 
-      <h3>Where is your event?</h3>
-      <BaseInput
-        label="Location"
-        v-model="event.location"
-        type="text"
-      />
+        <BaseInput
+          label="Description"
+          v-model="event.description"
+          type="text"
+        />
+      </fieldset>
 
-      <h3>Are pets allowed?</h3>
-      <BaseRadioGroup
-        v-model="event.pets"
-        name="pets"
-        :options="[
-          { value: 1, label: 'Yes' },
-          { value: 0, label: 'No' }
-        ]"
-      />
+      <fieldset>
+          <legend>Where is your event?</legend>
+          <BaseInput
+            label="Location"
+            v-model="event.location"
+            type="text"
+          />
+      </fieldset>
 
+      <fieldset>
+        <legend>Pets</legend>
+
+        <p>Are pets allowed?</p>
+        <BaseRadioGroup
+          v-model="event.pets"
+          name="pets"
+          :options="[
+            { value: 1, label: 'Yes' },
+            { value: 0, label: 'No' }
+          ]"
+        />
       <template v-if="event.pets === 0">
-        <h3>Are you sure? 🐶</h3>
+        <p>Are you sure? 🐶</p>
         <BaseRadioGroup
           v-model="event.petsagain"
           name="petsagain"
@@ -51,8 +58,10 @@
           ]"
         />
       </template>
+      </fieldset>
 
-      <h3>Extras</h3>
+    <fieldset>
+      <legend>Extras</legend>
       <div>
         <BaseCheckbox
           label="Catering"
@@ -66,6 +75,7 @@
           v-model="event.extras.music"
         />
       </div>
+      </fieldset>
 
       <div>
         <BaseButton
@@ -126,3 +136,17 @@ export default {
   }
 }
 </script>
+
+<style>
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+</style>
